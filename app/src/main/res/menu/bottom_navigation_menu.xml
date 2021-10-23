@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/discover"
+        android:enabled="true"
+        android:title="Discover"
+        android:icon="@drawable/ic_discover"/>
+
+    <item
+        android:id="@+id/creators"
+        android:enabled="true"
+        android:title="Creators"
+        android:icon="@drawable/ic_creators"/>
+
+    <item
+        android:id="@+id/more"
+        android:enabled="true"
+        android:title="More"
+        android:icon="@drawable/ic_more"/>
+
+</menu>

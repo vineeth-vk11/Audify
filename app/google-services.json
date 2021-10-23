@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "975329740060",
+    "project_id": "audify-88f18",
+    "storage_bucket": "audify-88f18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975329740060:android:40b09f50d0571a573766d9",
+        "android_client_info": {
+          "package_name": "com.audify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975329740060-b7m1pbvnuq8ciqkp600qq8s3h1r4qo93.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.audify",
+            "certificate_hash": "e7f1540c4789585188488f029176c201c503ad80"
+          }
+        },
+        {
+          "client_id": "975329740060-n85osd96msjddhdd6qcjl4mn2j7g56ii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv2OMsHhWAEbJZkXZZhxxtGhlJZManEak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975329740060-n85osd96msjddhdd6qcjl4mn2j7g56ii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

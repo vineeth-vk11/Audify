@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0A292E</color>
+    <color name="colorPrimaryDark">#0A292E</color>
+    <color name="colorAccent">#0A292E</color>
+    <color name="colorDivider">#BDBDBD</color>
+    <color name="colorRow">#E5E6EC</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="bg">#0A292E</color>
+    <color name="bg_screen2">#A5AFAE</color>
+    <color name="light_green_color">#19F8A6</color>
+    <color name="cards_bg">#0F3239</color>
+    <color name="audio_cards_bg">#0A292F</color>
+    <color name="audio_stroke_color">#5F7074</color>
+    <color name="play_button_bg">#0F3239</color>
+    <color name="audio_details_text_color">#73837D</color>
+
+    <color name="follow_blue">#007AFF</color>
+    <color name="colorTransparent">#00FFFFFF</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#d1395c</color>
+    <color name="dot_dark_screen2">#14a895</color>
+    <color name="dot_dark_screen3">#2278d4</color>
+    <color name="dot_dark_screen4">#a854d4</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#f98da5</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+    <color name="dot_light_screen3">#93c6fd</color>
+    <color name="dot_light_screen4">#e4b5fc</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+    </array>
+
+    <color name="color1">#F8F8F8</color>
+    <color name="color2">#7e455e</color>
+    <color name="color3">#796e25</color>
+    <color name="color4">#59717c</color>
+    <color name="red">#F30000</color>
+    <color name="green">#7AC141</color>
+    <color name="grey">#D3D3D3</color>
+    <color name="colorGrey">#dddddd</color>
+
+    <color name="violetERT">#8f00FF</color>
+    <color name="orangeMR">#FF5733</color>
+    <color name="bluePA">#00B5E2</color>
+</resources>
