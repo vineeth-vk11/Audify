@@ -10,8 +10,8 @@ android {
         applicationId "com.audify"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 5
-        versionName "1.0.1"
+        versionCode 7
+        versionName "1.0.3"
 
         multiDexEnabled true
 

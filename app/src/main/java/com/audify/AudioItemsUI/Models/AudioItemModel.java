@@ -5,6 +5,7 @@ public class AudioItemModel {
     String creatorImage, question, answer, category, duration, listeners, creatorName, creatorDescription, questionId;
     Boolean isPlaying;
     String creatorId;
+    int orderId;
 
     public AudioItemModel() {
     }
@@ -95,5 +96,13 @@ public class AudioItemModel {
 
     public void setCreatorId(String creatorId) {
         this.creatorId = creatorId;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 }

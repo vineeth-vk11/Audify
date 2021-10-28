@@ -1,5 +1,6 @@
 package com.audify.CreatorsUI;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,12 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.audify.CreatorsUI.Adapters.CreatorsAdapter;
 import com.audify.CreatorsUI.Models.CreatorsModel;
 import com.audify.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -31,6 +34,8 @@ public class CreatorsFragment extends Fragment {
     ArrayList<CreatorsModel> creatorsModelArrayList = new ArrayList<>();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    ProgressBar progressBar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,6 +45,9 @@ public class CreatorsFragment extends Fragment {
         creatorsRecycler = view.findViewById(R.id.creatorsRecycler);
         creatorsRecycler.setLayoutManager(new GridLayoutManager(getContext(), 2));
         creatorsRecycler.setHasFixedSize(true);
+
+        progressBar = view.findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.VISIBLE);
 
         db.collection("Creators").orderBy("orderId").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -67,6 +75,8 @@ public class CreatorsFragment extends Fragment {
 
                 CreatorsAdapter creatorsAdapter = new CreatorsAdapter(getContext(), creatorsModelArrayList);
                 creatorsRecycler.setAdapter(creatorsAdapter);
+
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
 

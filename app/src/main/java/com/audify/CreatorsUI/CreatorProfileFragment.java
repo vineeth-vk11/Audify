@@ -40,7 +40,10 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class CreatorProfileFragment extends Fragment {
 
@@ -132,11 +135,18 @@ public class CreatorProfileFragment extends Fragment {
                     audioItemModel.setAnswer(documentSnapshot.getString("answerAudio"));
                     audioItemModel.setQuestionId(documentSnapshot.getId());
                     audioItemModel.setCreatorId(documentSnapshot.getString("creatorId"));
+                    audioItemModel.setOrderId(Integer.parseInt(Objects.requireNonNull(documentSnapshot.getString("orderId"))));
 
                     audioItemModel.setPlaying(false);
 
                     audioItemModelArrayList.add(audioItemModel);
                 }
+
+                Collections.sort(audioItemModelArrayList, new Comparator<AudioItemModel>() {
+                    @Override public int compare(AudioItemModel a1, AudioItemModel a2) {
+                        return a1.getOrderId()- a2.getOrderId();
+                    }
+                });
 
                 activity = getActivity();
 
