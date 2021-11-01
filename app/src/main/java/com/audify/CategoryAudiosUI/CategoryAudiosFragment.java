@@ -39,7 +39,6 @@ public class CategoryAudiosFragment extends Fragment {
     Activity activity;
 
     String categoryName;
-    TextView categoryNameText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,9 +58,6 @@ public class CategoryAudiosFragment extends Fragment {
 
         shimmerFrameLayout.startShimmer();
         shimmerFrameLayout.setVisibility(View.VISIBLE);
-
-        categoryNameText = view.findViewById(R.id.categoryName);
-        categoryNameText.setText(categoryName);
 
         getAudioItems(categoryName);
 

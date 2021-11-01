@@ -1,4 +1,4 @@
-package com.audify.DiscoverUI.Models;
+package com.audify.CategoriesUI.Models;
 
 public class CategoriesModel {
 

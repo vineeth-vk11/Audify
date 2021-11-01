@@ -77,6 +77,8 @@ dependencies {
 
     implementation 'com.mixpanel.android:mixpanel-android:5.+'
 
+    implementation 'com.yuyakaido.android:card-stack-view:2.3.4'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

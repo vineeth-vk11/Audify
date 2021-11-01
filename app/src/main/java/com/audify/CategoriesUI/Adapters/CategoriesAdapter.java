@@ -1,8 +1,7 @@
-package com.audify.DiscoverUI.Adapters;
+package com.audify.CategoriesUI.Adapters;
 
 import android.content.Context;
 import android.graphics.drawable.PictureDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,19 +15,15 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.audify.CategoryAudiosUI.CategoryAudiosFragment;
-import com.audify.DiscoverUI.Models.CategoriesModel;
-import com.audify.DiscoverUI.ViewHolders.CategoriesViewHolder;
+import com.audify.CategoriesUI.Models.CategoriesModel;
+import com.audify.CategoriesUI.ViewHolders.CategoriesViewHolder;
+import com.audify.CategoryAudiosUI.CategorySpecificFragment;
 import com.audify.R;
 import com.audify.Utils.GlideApp;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.module.AppGlideModule;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.mixpanel.android.mpmetrics.MixpanelAPI;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -87,13 +82,13 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesViewHolder
                     Bundle bundle = new Bundle();
                     bundle.putString("categoryName", categoriesModelArrayList.get(position).getCategoryName());
 
-                    CategoryAudiosFragment categoryAudiosFragment = new CategoryAudiosFragment();
-                    categoryAudiosFragment.setArguments(bundle);
+                    CategorySpecificFragment categorySpecificFragment = new CategorySpecificFragment();
+                    categorySpecificFragment.setArguments(bundle);
 
                     AppCompatActivity appCompatActivity = (AppCompatActivity) v.getContext();
                     FragmentManager fragmentManager = appCompatActivity.getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.main_frame,categoryAudiosFragment);
+                    fragmentTransaction.replace(R.id.main_frame,categorySpecificFragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }

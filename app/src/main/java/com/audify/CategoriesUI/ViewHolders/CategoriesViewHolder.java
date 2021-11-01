@@ -1,4 +1,4 @@
-package com.audify.DiscoverUI.ViewHolders;
+package com.audify.CategoriesUI.ViewHolders;
 
 import android.view.View;
 import android.widget.ImageView;

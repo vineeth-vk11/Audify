@@ -13,7 +13,10 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_ask_question.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_bookmarks.xml" value="0.14492753623188406" />
+        <entry key="app/src/main/res/layout/fragment_categories.xml" value="0.18840579710144928" />
         <entry key="app/src/main/res/layout/fragment_category_audios.xml" value="0.1816123188405797" />
+        <entry key="app/src/main/res/layout/fragment_category_creators.xml" value="0.21603260869565216" />
+        <entry key="app/src/main/res/layout/fragment_category_specific.xml" value="0.21603260869565216" />
         <entry key="app/src/main/res/layout/fragment_creator_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_creators.xml" value="0.1933876811594203" />
         <entry key="app/src/main/res/layout/fragment_discover.xml" value="0.165" />
@@ -26,6 +29,7 @@
         <entry key="app/src/main/res/layout/list_item_completed_calls.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/list_item_creator.xml" value="0.375" />
         <entry key="app/src/main/res/layout/list_item_creator_audio.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/list_item_discover.xml" value="0.335" />
         <entry key="app/src/main/res/layout/list_item_discover_categories.xml" value="0.125" />
         <entry key="app/src/main/res/layout/list_item_exam_or_college.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/list_item_skills.xml" value="0.15670289855072464" />

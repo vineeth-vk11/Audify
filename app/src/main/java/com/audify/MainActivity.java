@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.audify.AudioItemsUI.Models.AudioItemModel;
 import com.audify.CreatorsUI.CreatorsFragment;
+import com.audify.CategoriesUI.CategoriesFragment;
 import com.audify.DiscoverUI.DiscoverFragment;
 import com.audify.HomeUI.HomeFragment;
 import com.audify.MoreUI.MoreFragment;
@@ -25,16 +26,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.mixpanel.android.mpmetrics.MixpanelAPI;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
 
-    HomeFragment homeFragment = new HomeFragment();
     DiscoverFragment discoverFragment = new DiscoverFragment();
+    CategoriesFragment categoriesFragment = new CategoriesFragment();
     CreatorsFragment creatorsFragment = new CreatorsFragment();
     MoreFragment moreFragment = new MoreFragment();
 
@@ -63,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         bottomNavigationView = findViewById(R.id.home_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setSelectedItemId(R.id.discover);
 
         currentPlayingCard = findViewById(R.id.currentPlayingCard);
         speakerImage = findViewById(R.id.speakerImage);
@@ -79,22 +77,22 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.home:
+            case R.id.discover:
 
                 mixpanel.track("Home Button Click");
 
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.main_frame,homeFragment);
+                fragmentTransaction.replace(R.id.main_frame,discoverFragment);
                 fragmentTransaction.commit();
                 return true;
-            case R.id.discover:
+            case R.id.categories:
 
-                mixpanel.track("Discover Button Click");
+                mixpanel.track("Categories Button Click");
 
                 FragmentManager fragmentManager1 = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction1 = fragmentManager1.beginTransaction();
-                fragmentTransaction1.replace(R.id.main_frame,discoverFragment);
+                fragmentTransaction1.replace(R.id.main_frame,categoriesFragment);
                 fragmentTransaction1.addToBackStack(null);
                 fragmentTransaction1.commit();
                 return true;
