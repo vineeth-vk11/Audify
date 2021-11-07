@@ -4,33 +4,40 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/background_gradient.xml" value="0.24479166666666666" />
+        <entry key="app/src/main/res/drawable/glass_bg_discover.xml" value="0.3" />
+        <entry key="app/src/main/res/drawable/glass_card_bg.xml" value="0.3055555555555556" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.28888888888888886" />
+        <entry key="app/src/main/res/drawable/ic_forward.xml" value="0.2917948717948718" />
+        <entry key="app/src/main/res/drawable/ic_like.xml" value="0.2935185185185185" />
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.24102564102564103" />
         <entry key="app/src/main/res/drawable/ic_play.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/drawable/top_card_bg.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_login_details_collection.xml" value="0.16168478260869565" />
-        <entry key="app/src/main/res/layout/activity_login_main.xml" value="0.16168478260869565" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_login_main.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_ask_question.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_ask_question.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_ask_question_all.xml" value="0.19927536231884058" />
         <entry key="app/src/main/res/layout/fragment_bookmarks.xml" value="0.14492753623188406" />
         <entry key="app/src/main/res/layout/fragment_categories.xml" value="0.18840579710144928" />
         <entry key="app/src/main/res/layout/fragment_category_audios.xml" value="0.1816123188405797" />
         <entry key="app/src/main/res/layout/fragment_category_creators.xml" value="0.21603260869565216" />
         <entry key="app/src/main/res/layout/fragment_category_specific.xml" value="0.21603260869565216" />
         <entry key="app/src/main/res/layout/fragment_creator_profile.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_creators.xml" value="0.1933876811594203" />
+        <entry key="app/src/main/res/layout/fragment_creators.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_discover.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_opportunities.xml" value="0.29791666666666666" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.15670289855072464" />
-        <entry key="app/src/main/res/layout/list_item_audio_item.xml" value="0.4533762057877814" />
+        <entry key="app/src/main/res/layout/glass_card_bg.xml" value="0.21240942028985507" />
+        <entry key="app/src/main/res/layout/list_item_audio_item.xml" value="0.5" />
         <entry key="app/src/main/res/layout/list_item_audio_item_shimmer.xml" value="0.375" />
         <entry key="app/src/main/res/layout/list_item_completed_calls.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/list_item_creator.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/list_item_creator_audio.xml" value="0.45" />
-        <entry key="app/src/main/res/layout/list_item_discover.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/list_item_discover_categories.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/list_item_creator_audio.xml" value="0.45016077170418006" />
+        <entry key="app/src/main/res/layout/list_item_discover.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/list_item_discover_categories.xml" value="0.5" />
         <entry key="app/src/main/res/layout/list_item_exam_or_college.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/list_item_skills.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.21145833333333333" />

@@ -63,6 +63,8 @@ public class CreatorProfileFragment extends Fragment {
 
     MixpanelAPI mixpanel;
 
+    CardView creatorBytesCard, creatorFollowersCard;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,6 +87,13 @@ public class CreatorProfileFragment extends Fragment {
 
         followOrUnfollowCard = view.findViewById(R.id.followOrUnfollow);
         followOrFollowingText = view.findViewById(R.id.followingOrFollowText);
+
+        creatorBytesCard = view.findViewById(R.id.creatorBytesCard);
+        creatorFollowersCard = view.findViewById(R.id.creatorFollowersCard);
+
+        creatorBytesCard.setBackground(getActivity().getDrawable(R.drawable.glass_card_bg));
+        creatorFollowersCard.setBackground(getActivity().getDrawable(R.drawable.glass_card_bg));
+        askAQuestion.setBackground(getActivity().getDrawable(R.drawable.glass_card_bg));
 
         Picasso.get().load(creator.getCreatorImage()).into(creatorImage);
         creatorName.setText(creator.getCreatorName());

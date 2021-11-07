@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,12 +29,13 @@ import java.util.HashMap;
 
 public class AskQuestionFragment extends Fragment {
 
-    TextInputEditText question;
     TextInputLayout questionBox;
 
     Button sendQuestion;
 
     String creatorName, creatorId;
+
+    EditText question;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,32 +50,37 @@ public class AskQuestionFragment extends Fragment {
         creatorId = bundle.getString("creatorId");
 
         questionBox = view.findViewById(R.id.questionBox);
-        questionBox.setBoxStrokeColor(Color.WHITE);
-
         question = view.findViewById(R.id.question_edit);
-        question.setTextColor(Color.WHITE);
-        question.setHintTextColor(Color.WHITE);
 
         sendQuestion = view.findViewById(R.id.submit);
         sendQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-                HashMap<String, Object> data = new HashMap<>();
-                data.put("creatorName", creatorName);
-                data.put("creatorId", creatorId);
-                data.put("userName", FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
-                data.put("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                String questionAsked = question.getText().toString().trim();
 
-                db.collection("Questions").add(data).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        Toast.makeText(getContext(), "Question submitted successfully, we will notify you when we receive an answer", Toast.LENGTH_LONG).show();
+                if(TextUtils.isEmpty(questionAsked)){
+                    Toast.makeText(getContext(), "Please enter a question to continue", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-                        getActivity().getSupportFragmentManager().popBackStack();
-                    }
-                });
+                    HashMap<String, Object> data = new HashMap<>();
+                    data.put("creatorName", creatorName);
+                    data.put("creatorId", creatorId);
+                    data.put("userName", FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+                    data.put("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    data.put("question", questionAsked);
+
+                    db.collection("Questions").add(data).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            Toast.makeText(getContext(), "Question submitted successfully, we will notify you when we receive an answer", Toast.LENGTH_LONG).show();
+
+                            getActivity().getSupportFragmentManager().popBackStack();
+                        }
+                    });
+                }
             }
         });
         return view;

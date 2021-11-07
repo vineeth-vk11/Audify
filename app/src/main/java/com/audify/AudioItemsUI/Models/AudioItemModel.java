@@ -6,6 +6,8 @@ public class AudioItemModel {
     Boolean isPlaying;
     String creatorId;
     int orderId;
+    String likes;
+    Boolean isLiked;
 
     public AudioItemModel() {
     }
@@ -104,5 +106,21 @@ public class AudioItemModel {
 
     public void setOrderId(int orderId) {
         this.orderId = orderId;
+    }
+
+    public String getLikes() {
+        return likes;
+    }
+
+    public void setLikes(String likes) {
+        this.likes = likes;
+    }
+
+    public Boolean getLiked() {
+        return isLiked;
+    }
+
+    public void setLiked(Boolean liked) {
+        isLiked = liked;
     }
 }

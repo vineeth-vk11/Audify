@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
@@ -43,6 +44,8 @@ public class MoreFragment extends Fragment {
 
     MixpanelAPI mixpanel;
 
+    CardView userListenedCard, userFollowingCard, allOptionsCard;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,6 +63,14 @@ public class MoreFragment extends Fragment {
         talkToFounder = view.findViewById(R.id.talkWithFounder);
         becomeCreator = view.findViewById(R.id.becomeCreator);
         logout = view.findViewById(R.id.logout);
+
+        userListenedCard = view.findViewById(R.id.userListenedCard);
+        userFollowingCard = view.findViewById(R.id.userFollowingCard);
+        allOptionsCard = view.findViewById(R.id.allOptionsCard);
+
+        userListenedCard.setBackground(getActivity().getDrawable(R.drawable.glass_card_bg));
+        userFollowingCard.setBackground(getActivity().getDrawable(R.drawable.glass_card_bg));
+        allOptionsCard.setBackground(getActivity().getDrawable(R.drawable.glass_card_bg));
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 

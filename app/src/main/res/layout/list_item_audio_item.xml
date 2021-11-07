@@ -13,15 +13,12 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="6dp"
-        android:backgroundTint="@color/audio_cards_bg"
         android:minWidth="84dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="#0F3239"
-        app:strokeWidth="4px">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -33,7 +30,6 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:backgroundTint="@color/audio_cards_bg"
                 app:cardCornerRadius="9dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -53,11 +49,11 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/roboto"
                 android:gravity="center_vertical"
                 android:text="What do you think about the maturity of startup ecosystem in India?"
                 android:textColor="@color/white"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/cardView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cardView"
@@ -71,7 +67,7 @@
                 android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/creatorDescription"
+                app:layout_constraintTop_toBottomOf="@+id/creatorDesignation"
                 app:srcCompat="@drawable/ic_categoryicon" />
 
             <TextView
@@ -79,9 +75,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/roboto"
                 android:text="Startup"
-                android:textColor="@color/audio_details_text_color"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -96,7 +92,7 @@
                 android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/category"
-                app:layout_constraintTop_toBottomOf="@+id/creatorDescription"
+                app:layout_constraintTop_toBottomOf="@+id/creatorDesignation"
                 app:srcCompat="@drawable/ic_timeicon" />
 
             <TextView
@@ -104,9 +100,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/roboto"
                 android:text="3 Min"
-                android:textColor="@color/audio_details_text_color"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                 app:layout_constraintStart_toEndOf="@+id/imageView7"
@@ -121,7 +117,7 @@
                 android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/duration"
-                app:layout_constraintTop_toBottomOf="@+id/creatorDescription"
+                app:layout_constraintTop_toBottomOf="@+id/creatorDesignation"
                 app:srcCompat="@drawable/ic_musicicon" />
 
             <TextView
@@ -129,24 +125,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/roboto"
                 android:text="100 Listeners"
-                android:textColor="@color/audio_details_text_color"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView8"
                 app:layout_constraintStart_toEndOf="@+id/imageView8"
                 app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
             <TextView
-                android:id="@+id/creatorDescription"
+                android:id="@+id/creatorDesignation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/roboto"
                 android:text="Venkatesh Gupta, Product Manager at Internshala"
-                android:textColor="@color/audio_details_text_color"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

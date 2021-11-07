@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Audify</string>
+    <string name="app_name">Audify.Club</string>
 
     <string-array name="CountryCodes">
         <item>93,AF</item>

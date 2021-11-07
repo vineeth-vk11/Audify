@@ -8,9 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.audify.CreatorsUI.Adapters.CreatorsAdapter;
@@ -36,6 +39,10 @@ public class CreatorsFragment extends Fragment {
 
     ProgressBar progressBar;
 
+    EditText search;
+
+    CreatorsAdapter creatorsAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +55,24 @@ public class CreatorsFragment extends Fragment {
 
         progressBar = view.findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.VISIBLE);
+
+        search = view.findViewById(R.id.searchBox);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                creatorsAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         db.collection("Creators").orderBy("orderId").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -73,7 +98,7 @@ public class CreatorsFragment extends Fragment {
                     }
                 });
 
-                CreatorsAdapter creatorsAdapter = new CreatorsAdapter(getContext(), creatorsModelArrayList);
+                creatorsAdapter = new CreatorsAdapter(getContext(), creatorsModelArrayList);
                 creatorsRecycler.setAdapter(creatorsAdapter);
 
                 progressBar.setVisibility(View.INVISIBLE);

@@ -15,9 +15,9 @@
     </style>
 
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
-        <item name="colorPrimary">#133339</item>
-        <item name="colorOnPrimary">#19F8A6</item>
-        <item name="colorOnSurface">@color/colorPrimary</item>
+        <item name="colorPrimary">#000000</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorOnSurface">#000000</item>
     </style>
 
 </resources>

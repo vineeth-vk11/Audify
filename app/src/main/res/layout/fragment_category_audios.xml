@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/black"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CategoryAudiosUI.CategoryAudiosFragment">
 
@@ -11,6 +11,8 @@
         android:id="@+id/audioItemsRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingBottom="100dp"
+        android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

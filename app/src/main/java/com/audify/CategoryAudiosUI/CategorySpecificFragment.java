@@ -52,7 +52,7 @@ public class CategorySpecificFragment extends Fragment {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(),0);
         viewPagerAdapter.addFragment(categoryAudiosFragment,"Audios");
-        viewPagerAdapter.addFragment(categoryCreatorsFragment,"Creators");
+        viewPagerAdapter.addFragment(categoryCreatorsFragment,"Experts");
         viewPager.setAdapter(viewPagerAdapter);
 
         return view;

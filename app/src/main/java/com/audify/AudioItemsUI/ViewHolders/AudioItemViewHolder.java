@@ -20,7 +20,7 @@ public class AudioItemViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         creatorImage = itemView.findViewById(R.id.speakerImage);
-        creatorDescription = itemView.findViewById(R.id.creatorDescription);
+        creatorDescription = itemView.findViewById(R.id.creatorDesignation);
         question = itemView.findViewById(R.id.question);
         category = itemView.findViewById(R.id.category);
         duration = itemView.findViewById(R.id.duration);

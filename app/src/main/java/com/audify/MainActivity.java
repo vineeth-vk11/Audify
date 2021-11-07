@@ -15,7 +15,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.audify.AskQuestionUI.AskQuestionAllFragment;
 import com.audify.AudioItemsUI.Models.AudioItemModel;
 import com.audify.CreatorsUI.CreatorsFragment;
 import com.audify.CategoriesUI.CategoriesFragment;
@@ -50,6 +52,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public Runnable runnable;
 
     public AudioItemModel currentPlayingAudio;
+
+//    discoverAudioType = "discover";
+//    categoryAudioType = "category";
+//    creatorAudioType = "creator";
+
+    public String currentPlayingAudioType = "None";
+    public String currentPlayingCreatorId = "None";
+    public String currentPlayingCategoryName = "None";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +125,18 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragmentTransaction3.replace(R.id.main_frame,moreFragment);
                 fragmentTransaction3.addToBackStack(null);
                 fragmentTransaction3.commit();
+                return true;
+            case R.id.ask:
+
+                mixpanel.track("Ask Question All Button Click");
+
+                AskQuestionAllFragment askQuestionAllFragment = new AskQuestionAllFragment();
+
+                FragmentManager fragmentManager4 = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction4 = fragmentManager4.beginTransaction();
+                fragmentTransaction4.replace(R.id.main_frame,askQuestionAllFragment);
+                fragmentTransaction4.addToBackStack(null);
+                fragmentTransaction4.commit();
                 return true;
         }
 

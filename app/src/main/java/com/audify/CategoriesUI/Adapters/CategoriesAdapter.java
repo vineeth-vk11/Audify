@@ -59,6 +59,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesViewHolder
         GlideApp.with(context).load(categoriesModelArrayList.get(holder.getAdapterPosition()).getCategorySvg())
                 .apply(RequestOptions.centerCropTransform()).into(holder.categoryImage);
 
+        holder.categoryCard.setBackground(context.getDrawable(R.drawable.glass_card_bg));
         holder.categoryName.setText(categoriesModelArrayList.get(position).getCategoryName());
 
         holder.categoryCard.setOnClickListener(new View.OnClickListener() {

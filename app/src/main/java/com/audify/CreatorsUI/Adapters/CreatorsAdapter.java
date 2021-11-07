@@ -6,6 +6,8 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,15 +31,19 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-public class CreatorsAdapter extends RecyclerView.Adapter<CreatorsViewHolder> {
+public class CreatorsAdapter extends RecyclerView.Adapter<CreatorsViewHolder> implements Filterable {
 
     Context context;
     ArrayList<CreatorsModel> creatorsModelArrayList;
+    ArrayList<CreatorsModel> creatorsModelArrayListAll;
 
     public CreatorsAdapter(Context context, ArrayList<CreatorsModel> creatorsModelArrayList) {
         this.context = context;
         this.creatorsModelArrayList = creatorsModelArrayList;
+        this.creatorsModelArrayListAll = new ArrayList<>(creatorsModelArrayList);
     }
 
     @NonNull
@@ -71,6 +77,7 @@ public class CreatorsAdapter extends RecyclerView.Adapter<CreatorsViewHolder> {
                     }
                 });
 
+        holder.creator.setBackground(context.getDrawable(R.drawable.glass_card_bg));
         holder.creatorName.setText(creatorsModelArrayList.get(position).getCreatorName());
         holder.creatorDesignation.setText(creatorsModelArrayList.get(position).getCreatorDesignation());
         holder.creatorBytes.setText(String.valueOf(creatorsModelArrayList.get(position).getCreatorBytes()));
@@ -110,4 +117,39 @@ public class CreatorsAdapter extends RecyclerView.Adapter<CreatorsViewHolder> {
     public int getItemCount() {
         return creatorsModelArrayList.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
+    Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+
+            List<CreatorsModel> filteredList = new ArrayList<>();
+            if(constraint.toString().isEmpty()){
+                filteredList.addAll(creatorsModelArrayListAll);
+            }
+            else {
+                for(int i = 0; i<creatorsModelArrayListAll.size();i++){
+                    if(creatorsModelArrayListAll.get(i).getCreatorName().toLowerCase().contains(constraint.toString().toLowerCase())
+                    || creatorsModelArrayListAll.get(i).getCreatorDesignation().toLowerCase().contains(constraint.toString().toLowerCase())){
+                        filteredList.add(creatorsModelArrayListAll.get(i));
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredList;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            creatorsModelArrayList.clear();
+            creatorsModelArrayList.addAll((Collection<? extends CreatorsModel>) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }

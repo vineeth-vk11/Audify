@@ -45,9 +45,6 @@ public class CreatorAudioAdapter extends RecyclerView.Adapter<CreatorAudioViewHo
         this.activity = activity;
     }
 
-    Handler handler;
-    Runnable runnable;
-
     int currentPlayingPosition;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -73,6 +70,8 @@ public class CreatorAudioAdapter extends RecyclerView.Adapter<CreatorAudioViewHo
 
         mediaPlayer = ((MainActivity)activity).mediaPlayer;
 
+        holder.audioCard.setBackground(context.getDrawable(R.drawable.glass_card_bg));
+
         holder.audioCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +85,8 @@ public class CreatorAudioAdapter extends RecyclerView.Adapter<CreatorAudioViewHo
                 mixpanel.track("Audio Item Clicked", props);
 
                 ((MainActivity)activity).currentPlayingAudio = audioItemModelArrayList.get(holder.getAdapterPosition());
+                ((MainActivity)activity).currentPlayingAudioType = "creator";
+                ((MainActivity)activity).currentPlayingCreatorId = audioItemModelArrayList.get(holder.getAdapterPosition()).getCreatorId();
 
                 currentPlayingPosition = holder.getAdapterPosition();
 
@@ -150,6 +151,7 @@ public class CreatorAudioAdapter extends RecyclerView.Adapter<CreatorAudioViewHo
                     mediaPlayer.setDataSource(audioItemModelArrayList.get(holder.getAdapterPosition()).getAnswer());
                     mediaPlayer.prepare();
                     mediaPlayer.start();
+
                     ((MainActivity)activity).playAndPauseButton.setImageResource(R.drawable.ic_pause);
                     audioItemModelArrayList.get(holder.getAdapterPosition()).setPlaying(true);
 
@@ -167,7 +169,6 @@ public class CreatorAudioAdapter extends RecyclerView.Adapter<CreatorAudioViewHo
             public void onClick(View v) {
                 if(mediaPlayer.isPlaying()){
                     mediaPlayer.pause();
-//                    ((MainActivity)activity).handler.removeCallbacks(((MainActivity)activity).runnable);
                     ((MainActivity)activity).playAndPauseButton.setImageResource(R.drawable.ic_play);
 
                     mixpanel.track("Pause Button Clicked");
@@ -186,50 +187,56 @@ public class CreatorAudioAdapter extends RecyclerView.Adapter<CreatorAudioViewHo
             @Override
             public void onCompletion(MediaPlayer mp) {
 
-                JSONObject props = new JSONObject();
-                try {
-                    props.put("audioId", audioItemModelArrayList.get(holder.getAdapterPosition()).getQuestionId());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                if(((MainActivity) activity).currentPlayingAudioType.equals("creator") &&
+                        ((MainActivity)activity).currentPlayingCreatorId.equals(audioItemModelArrayList.get(holder.getAdapterPosition()).getCreatorId())){
+                    JSONObject props = new JSONObject();
+                    try {
+                        props.put("audioId", audioItemModelArrayList.get(holder.getAdapterPosition()).getQuestionId());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-                mixpanel.track("Audio Played Completely", props);
+                    mixpanel.track("Audio Played Completely", props);
 
-                if(currentPlayingPosition == audioItemModelArrayList.size()){
-                    currentPlayingPosition = 0;
+                    if(currentPlayingPosition == audioItemModelArrayList.size()-1){
+                        currentPlayingPosition = 0;
+                    }
+                    else{
+                        currentPlayingPosition += 1;
+                    }
+
+                    ((MainActivity)activity).handler = new Handler();
+                    ((MainActivity)activity).runnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            ((MainActivity)activity).progressBar.setProgress(mediaPlayer.getCurrentPosition());
+                            ((MainActivity)activity).handler.postDelayed(this, 500);
+                        }
+                    };
+
+                    ((MainActivity)activity).currentPlayingCard.setVisibility(View.VISIBLE);
+                    ((MainActivity)activity).question.setText(audioItemModelArrayList.get(currentPlayingPosition).getQuestion());
+                    Picasso.get().load(audioItemModelArrayList.get(currentPlayingPosition).getCreatorImage()).into(((MainActivity)activity).speakerImage);
+
+                    try {
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                        mediaPlayer.setDataSource(audioItemModelArrayList.get(currentPlayingPosition).getAnswer());
+                        mediaPlayer.prepare();
+                        mediaPlayer.start();
+                        ((MainActivity)activity).playAndPauseButton.setImageResource(R.drawable.ic_pause);
+                        audioItemModelArrayList.get(currentPlayingPosition).setPlaying(true);
+
+                        ((MainActivity)activity).progressBar.setMax(mediaPlayer.getDuration());
+                        ((MainActivity)activity).handler.postDelayed(((MainActivity)activity).runnable, 0);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 else{
-                    currentPlayingPosition += 1;
-                }
-
-                ((MainActivity)activity).handler = new Handler();
-                ((MainActivity)activity).runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        ((MainActivity)activity).progressBar.setProgress(mediaPlayer.getCurrentPosition());
-                        ((MainActivity)activity).handler.postDelayed(this, 500);
-                    }
-                };
-
-                ((MainActivity)activity).currentPlayingCard.setVisibility(View.VISIBLE);
-                ((MainActivity)activity).question.setText(audioItemModelArrayList.get(currentPlayingPosition).getQuestion());
-                Picasso.get().load(audioItemModelArrayList.get(currentPlayingPosition).getCreatorImage()).into(((MainActivity)activity).speakerImage);
-
-                try {
-                    mediaPlayer.stop();
-                    mediaPlayer.reset();
-                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                    mediaPlayer.setDataSource(audioItemModelArrayList.get(currentPlayingPosition).getAnswer());
-                    mediaPlayer.prepare();
-                    mediaPlayer.start();
-                    ((MainActivity)activity).playAndPauseButton.setImageResource(R.drawable.ic_pause);
-                    audioItemModelArrayList.get(currentPlayingPosition).setPlaying(true);
-
-                    ((MainActivity)activity).progressBar.setMax(mediaPlayer.getDuration());
-                    ((MainActivity)activity).handler.postDelayed(((MainActivity)activity).runnable, 0);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    ((MainActivity) activity).currentPlayingCard.setVisibility(View.GONE);
                 }
             }
         });

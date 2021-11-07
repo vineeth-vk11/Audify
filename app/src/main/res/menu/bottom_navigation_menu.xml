@@ -10,13 +10,19 @@
         android:id="@+id/categories"
         android:enabled="true"
         android:title="Categories"
-        android:icon="@drawable/ic_discover"/>
+        android:icon="@drawable/ic_categories"/>
 
     <item
         android:id="@+id/creators"
         android:enabled="true"
-        android:title="Creators"
+        android:title="Experts"
         android:icon="@drawable/ic_creators"/>
+
+    <item
+        android:id="@+id/ask"
+        android:enabled="true"
+        android:title="Ask"
+        android:icon="@drawable/ic_ask"/>
 
     <item
         android:id="@+id/more"
